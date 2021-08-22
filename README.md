@@ -7,6 +7,7 @@ Setup.bat is a batch file to install any windows or any system UEFI and BIOS. Th
     -if Disk is Dynamic Type means you can't make more boot menu in the disk.
  * For Clean installation need atlest 8GB Pen drive.
  * If error show run script to another loacton.
+ * Save as this File Setup.bat name. If save to another name this script not working.
 # Features 
  * Make pen drive bootable automatically no extra software needs.
  * Find automatically Mounted ISO Files.
