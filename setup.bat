@@ -229,8 +229,8 @@ if exist "%CD%\temp" rmdir /q "%cd%\temp"
 if %errorlevel% NEQ 0 cls & echo **    ERROR: Run script from another loaction. & goto END
 md "%CD%\temp"
 Dism /Mount-WIM /WimFile:"%cd%\boot.wim" /index:1 /MountDir:"%cd%\temp"
-%ISOpath%Dism.exe /image:"%cd%\temp" /Set-TargetPath:X:\
-if %errorlevel% NEQ 0 Dism /image:"%cd%\temp" /Set-TargetPath:X:\
+Dism /image:"%cd%\temp" /Set-TargetPath:X:\
+if %errorlevel% NEQ 0 %ISOpath%Dism.exe /image:"%cd%\temp" /Set-TargetPath:X:\
 if %errorlevel% NEQ 0 cls & echo ERROR: Dism.exe failed or old vrsion. & goto END
 Echo Un-mounting...
 Dism /Unmount-WIM /MountDir:"%cd%\temp" /Commit
