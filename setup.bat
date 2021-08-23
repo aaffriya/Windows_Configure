@@ -261,6 +261,7 @@ echo                Coping file in USB drive...Please wait
 echo ======================================================================
 if not exist P:\Sources md "P:\Sources"
 xcopy "%ISOpath%install.wim" "P:\Sources"
+if %errorlevel% NEQ 0 cls & echo ****Copy failed.... & goto END
 cls
 echo ======================================================================
 echo                     Script Version-%scriptver%
