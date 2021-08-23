@@ -229,7 +229,9 @@ if exist "%CD%\temp" rmdir /q "%cd%\temp"
 if %errorlevel% NEQ 0 cls & echo **    ERROR: Run script from another loaction. & goto END
 md "%CD%\temp"
 Dism /Mount-WIM /WimFile:"%cd%\boot.wim" /index:1 /MountDir:"%cd%\temp"
-Dism /image:"%cd%\temp" /Set-TargetPath:X:\
+%ISOpath%Dism.exe /image:"%cd%\temp" /Set-TargetPath:X:\
+if %errorlevel% NEQ 0 Dism /image:"%cd%\temp" /Set-TargetPath:X:\
+if %errorlevel% NEQ 0 cls & echo ERROR: Dism.exe failed or old vrsion. & goto END
 Echo Un-mounting...
 Dism /Unmount-WIM /MountDir:"%cd%\temp" /Commit
 if %errorlevel% NEQ 0 cls & echo **    ERROR: dism.exe Failed, Please allow Dism.exe in Controlled folder access in Windows Security. & echo Go to notification(WIN+N) and allow Dism.exe & echo After Give access try again & goto END
