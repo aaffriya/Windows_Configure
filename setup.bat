@@ -3,6 +3,7 @@
 set "scriptver=1.0"
 title Script By Bhupender Yadav
 
+if not exist "%cd%\Setup.bat" Echo. & echo. & echo ==============Save as this file to "Setup.bat" in the notepad.============== & goto END 
 if exist X:\Windows\System32 goto :CHECKFILE
 if not exist X:\Windows\System32 goto :SETADMIN
 
