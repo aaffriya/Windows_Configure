@@ -229,6 +229,7 @@ dism /export-image /SourceImageFile:%ISOpath%boot.wim /SourceIndex:1 /Destinatio
 if exist "%CD%\temp" rmdir /q "%cd%\temp"
 if %errorlevel% NEQ 0 cls & echo **    ERROR: Run script from another loaction. & goto END
 md "%CD%\temp"
+Echo Mounting...
 Dism /Mount-WIM /WimFile:"%cd%\boot.wim" /index:1 /MountDir:"%cd%\temp"
 Dism /image:"%cd%\temp" /Set-TargetPath:X:\
 if %errorlevel% NEQ 0 %ISOpath%Dism.exe /image:"%cd%\temp" /Set-TargetPath:X:\
